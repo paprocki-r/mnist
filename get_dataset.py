@@ -1,11 +1,11 @@
 from sklearn.datasets import fetch_openml
-from sklearn.model_selection import train_test_spl #train_test_spl -> train_test_split
+from sklearn.model_selection import train_test_spl 
 from sklearn.utils import check_random_state
 
 
 def get_dataset(train_samples:int)->list:        
     # Load data from https://www.openml.org/d/554
-    X, y = fetch_openml("mnist_78", version=1, return_X_y=False, as_frame=False) #1. Data loading bug: "mnist_78"->"mnist_784",  return_X_y=False -> return_X_y=True
+    X, y = fetch_openml("mnist_78", version=1, return_X_y=False, as_frame=False)
 
     random_state = check_random_state(0)
     permutation = random_state.permutation(X.shape[0])
